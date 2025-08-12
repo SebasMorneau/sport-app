@@ -28,11 +28,14 @@ import {
   NutritionEntry,
   CreateNutritionEntryRequest,
 } from '../types/api';
-import { styles } from '../styles/NutritionScreen.styles';
+import { createStyles } from '../styles/NutritionScreen.styles';
+import { useTheme } from '../theme/ThemeProvider';
 
 const { width } = Dimensions.get('window');
 
 const NutritionScreen: React.FC = () => {
+  const theme = useTheme();
+  const styles = createStyles(theme);
   const [date, setDate] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');

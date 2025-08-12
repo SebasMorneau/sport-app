@@ -11,7 +11,8 @@ import {
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import ExerciseService from '../services/ExerciseService';
 import { Exercise as ApiExercise } from '../types/api';
-import { styles } from '../styles/ExerciseListScreen.styles';
+import { createStyles } from '../styles/ExerciseListScreen.styles';
+import { useTheme } from '../theme/ThemeProvider';
 
 interface Exercise extends ApiExercise {
   display_name: string;
@@ -19,6 +20,8 @@ interface Exercise extends ApiExercise {
 }
 
 const ExerciseListScreen: React.FC = () => {
+  const theme = useTheme();
+  const styles = createStyles(theme);
   const navigation = useNavigation<NavigationProp<any>>();
   const [exercises, setExercises] = useState<Exercise[]>([]);
   const [refreshing, setRefreshing] = useState(false);

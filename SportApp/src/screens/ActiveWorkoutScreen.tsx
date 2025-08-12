@@ -33,7 +33,8 @@ import {
 } from '../store/api/trainingApi';
 import { useSearchExercisesQuery } from '../store/api/exerciseApi';
 import { Exercise } from '../types/api';
-import { styles } from '../styles/ActiveWorkoutScreen.styles';
+import { createStyles } from '../styles/ActiveWorkoutScreen.styles';
+import { useTheme } from '../theme/ThemeProvider';
 
 interface ActiveWorkoutScreenProps {
   navigation: any;
@@ -44,6 +45,8 @@ const ActiveWorkoutScreen: React.FC<ActiveWorkoutScreenProps> = ({
   navigation,
   route,
 }) => {
+  const theme = useTheme();
+  const styles = createStyles(theme);
   const dispatch = useDispatch();
   const {
     activeWorkout,

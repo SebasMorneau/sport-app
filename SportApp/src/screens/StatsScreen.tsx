@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView, RefreshControl, Alert } from 'react-native';
 import TrainingService from '../services/TrainingService';
-import { styles } from '../styles/StatsScreen.styles';
+import { createStyles } from '../styles/StatsScreen.styles';
+import { useTheme } from '../theme/ThemeProvider';
 
 interface StatsData {
   overview: {
@@ -24,6 +25,8 @@ interface StatsData {
 }
 
 const StatsScreen: React.FC = () => {
+  const theme = useTheme();
+  const styles = createStyles(theme);
   const [stats, setStats] = useState<StatsData | null>(null);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);

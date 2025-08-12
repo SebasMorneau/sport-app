@@ -18,9 +18,12 @@ import {
   useUnsubscribeFromProgramMutation,
 } from '../store/api/programApi';
 import { Program, UserProgram } from '../types/api';
-import { styles } from '../styles/ProgramsScreen.styles';
+import { createStyles } from '../styles/ProgramsScreen.styles';
+import { useTheme } from '../theme/ThemeProvider';
 
 const ProgramsScreen: React.FC = () => {
+  const theme = useTheme();
+  const styles = createStyles(theme);
   const [selectedDifficulty, setSelectedDifficulty] = useState('all');
   const [refreshing, setRefreshing] = useState(false);
   const [showProgramModal, setShowProgramModal] = useState(false);

@@ -30,16 +30,16 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   // API reducers
-  [authApi.reducerPath]: authApi.reducer,
-  [exerciseApi.reducerPath]: exerciseApi.reducer,
-  [trainingApi.reducerPath]: trainingApi.reducer,
-  [programApi.reducerPath]: programApi.reducer,
-  [progressApi.reducerPath]: progressApi.reducer,
-  [nutritionApi.reducerPath]: nutritionApi.reducer,
-  [socialApi.reducerPath]: socialApi.reducer,
-  [aiApi.reducerPath]: aiApi.reducer,
-  [wearableApi.reducerPath]: wearableApi.reducer,
-  [syncApi.reducerPath]: syncApi.reducer,
+  authApi: authApi.reducer,
+  exerciseApi: exerciseApi.reducer,
+  trainingApi: trainingApi.reducer,
+  programApi: programApi.reducer,
+  progressApi: progressApi.reducer,
+  nutritionApi: nutritionApi.reducer,
+  socialApi: socialApi.reducer,
+  aiApi: aiApi.reducer,
+  wearableApi: wearableApi.reducer,
+  syncApi: syncApi.reducer,
 
   // Slice reducers
   auth: authReducer,

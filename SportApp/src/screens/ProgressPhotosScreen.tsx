@@ -22,9 +22,12 @@ import {
   useDeleteProgressPhotoMutation,
 } from '../store/api/progressApi';
 import { ProgressPhoto } from '../types/api';
-import { styles } from '../styles/ProgressPhotosScreen.styles';
+import { createStyles } from '../styles/ProgressPhotosScreen.styles.ts';
+import { useTheme } from '../theme/ThemeProvider';
 
 const ProgressPhotosScreen: React.FC = () => {
+  const theme = useTheme();
+  const styles = createStyles(theme);
   const [selectedType, setSelectedType] = useState<
     'front' | 'side' | 'back' | 'other'
   >('front');
@@ -134,9 +137,9 @@ const ProgressPhotosScreen: React.FC = () => {
     );
   };
 
-  const groupPhotosByDate = (photos: ProgressPhoto[]) => {
+  const groupPhotosByDate = (progressPhotos: ProgressPhoto[]) => {
     const grouped: { [key: string]: ProgressPhoto[] } = {};
-    photos.forEach(photo => {
+    progressPhotos.forEach(photo => {
       const date = new Date(photo.photo_date).toDateString();
       if (!grouped[date]) {
         grouped[date] = [];

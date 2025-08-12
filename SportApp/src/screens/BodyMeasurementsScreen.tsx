@@ -20,7 +20,8 @@ import {
   useDeleteBodyMeasurementMutation,
 } from '../store/api/progressApi';
 import { BodyMeasurement, CreateBodyMeasurementRequest } from '../types/api';
-import { styles } from '../styles/BodyMeasurementsScreen.styles';
+import { createStyles } from '../styles/BodyMeasurementsScreen.styles';
+import { useTheme } from '../theme/ThemeProvider';
 
 const { width } = Dimensions.get('window');
 
@@ -37,6 +38,8 @@ interface MeasurementInput {
 }
 
 const BodyMeasurementsScreen: React.FC = () => {
+  const theme = useTheme();
+  const styles = createStyles(theme);
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [showAddForm, setShowAddForm] = useState(false);

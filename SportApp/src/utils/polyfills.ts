@@ -3,9 +3,7 @@
  * Fixes common JavaScript environment issues
  */
 
-// Global object polyfill for React Native
-if (typeof (global as any) === 'undefined') {
-  (global as any) = {};
-}
+// React Native already provides the global object
+// No polyfills needed for basic environment setup
 
 export {};

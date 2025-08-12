@@ -12,7 +12,8 @@ import {
 } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import AuthService from '../services/AuthService';
-import { styles } from '../styles/RegisterScreen.styles';
+import { createStyles } from '../styles/RegisterScreen.styles';
+import { useTheme } from '../theme/ThemeProvider';
 
 type RootStackParamList = {
   Login: undefined;
@@ -23,6 +24,8 @@ type RootStackParamList = {
 type Props = NativeStackScreenProps<RootStackParamList, 'Register'>;
 
 const RegisterScreen = ({ navigation }: Props) => {
+  const theme = useTheme();
+  const styles = createStyles(theme);
   const [nom, setNom] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

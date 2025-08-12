@@ -13,9 +13,6 @@ module.exports = {
   arrowParens: 'avoid',
   endOfLine: 'lf',
 
-  // React Native specific
-  jsxBracketSameLine: false,
-
   // Override for specific file types
   overrides: [
     {

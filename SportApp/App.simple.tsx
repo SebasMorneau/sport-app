@@ -1,6 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
+// Color constants
+const COLORS = {
+  background: '#f0f0f0',
+  text: '#333',
+  subtext: '#666',
+} as const;
+
 const App: React.FC = () => {
   return (
     <View style={styles.container}>
@@ -15,17 +22,17 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f0f0f0',
+    backgroundColor: COLORS.background,
   },
   text: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#333',
+    color: COLORS.text,
     marginBottom: 10,
   },
   subtext: {
     fontSize: 16,
-    color: '#666',
+    color: COLORS.subtext,
   },
 });
 

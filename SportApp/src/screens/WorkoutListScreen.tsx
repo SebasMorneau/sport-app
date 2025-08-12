@@ -9,9 +9,12 @@ import {
 } from 'react-native';
 import TrainingService from '../services/TrainingService';
 import { Training } from '../types/api';
-import { styles } from '../styles/WorkoutListScreen.styles';
+import { createStyles } from '../styles/WorkoutListScreen.styles';
+import { useTheme } from '../theme/ThemeProvider';
 
 const WorkoutListScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
+  const theme = useTheme();
+  const styles = createStyles(theme);
   const [workouts, setWorkouts] = useState<Training[]>([]);
   const [refreshing, setRefreshing] = useState(false);
 

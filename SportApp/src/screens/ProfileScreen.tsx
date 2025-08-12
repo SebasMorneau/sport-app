@@ -5,7 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../store';
 import { logout } from '../store/slices/authSlice';
-import { styles } from '../styles/ProfileScreen.styles';
+import { createStyles } from '../styles/ProfileScreen.styles';
 import { useLogoutMutation } from '../store/api/authApi';
 import { useTheme } from '../theme/ThemeProvider';
 import { ThemeToggle } from '../components/ui/ThemeToggle';
@@ -26,6 +26,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   showArrow = true,
 }) => {
   const theme = useTheme();
+  const styles = createStyles(theme);
 
   return (
     <TouchableOpacity style={styles.menuItem} onPress={onPress}>
@@ -53,9 +54,10 @@ const MenuItem: React.FC<MenuItemProps> = ({
 };
 
 const ProfileScreen: React.FC = () => {
+  const theme = useTheme();
+  const styles = createStyles(theme);
   const dispatch = useDispatch();
   const { user } = useSelector((state: RootState) => state.auth);
-  const theme = useTheme();
 
   const [logoutMutation] = useLogoutMutation();
 
